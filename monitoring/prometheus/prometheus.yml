@@ -1,0 +1,28 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'notification-server'
+    metrics_path: '/actuator/prometheus'
+    dns_sd_configs:
+      - names:
+          - 'notification-server'
+        type: 'A'
+        port: 8080
+
+  - job_name: 'notification-worker'
+    metrics_path: '/actuator/prometheus'
+    dns_sd_configs:
+      - names:
+          - 'notification-worker'
+        type: 'A'
+        port: 8081
+
+  - job_name: 'third-party-emulator'
+    metrics_path: '/actuator/prometheus'
+    dns_sd_configs:
+      - names:
+          - 'third-party-emulator'
+        type: 'A'
+        port: 8082

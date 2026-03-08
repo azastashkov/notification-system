@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: third-party-emulator
+
+server:
+  port: ${SERVER_PORT:8082}
+
+device-emulator:
+  base-url: ${DEVICE_EMULATOR_URL:http://localhost:8083}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+  metrics:
+    tags:
+      application: third-party-emulator

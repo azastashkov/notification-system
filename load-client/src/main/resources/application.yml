@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: load-client
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:notification_db}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+notification-server:
+  base-url: ${NOTIFICATION_SERVER_URL:http://localhost:8080}
+
+device-emulator:
+  base-url: ${DEVICE_EMULATOR_URL:http://localhost:8083}
+
+load-test:
+  users: ${LOAD_TEST_USERS:100}
+  notifications-per-user: ${LOAD_TEST_NOTIFICATIONS:10}
+  threads: ${LOAD_TEST_THREADS:10}
