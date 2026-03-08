@@ -1,7 +1,13 @@
 package com.notification.loadclient.service;
 
-import com.notification.loadclient.model.*;
-import com.notification.loadclient.repository.*;
+import com.notification.loadclient.model.Device;
+import com.notification.loadclient.model.NotificationTemplate;
+import com.notification.loadclient.model.User;
+import com.notification.loadclient.model.UserSettings;
+import com.notification.loadclient.repository.DeviceRepository;
+import com.notification.loadclient.repository.NotificationTemplateRepository;
+import com.notification.loadclient.repository.UserRepository;
+import com.notification.loadclient.repository.UserSettingsRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

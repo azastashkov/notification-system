@@ -1,14 +1,17 @@
 package com.notification.server.validation;
 
 import com.notification.server.dto.SendNotificationRequest;
-import com.notification.server.model.*;
+import com.notification.server.model.Device;
+import com.notification.server.model.NotificationType;
+import com.notification.server.model.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class NotificationValidatorTest {
 
