@@ -3,9 +3,10 @@ WORKDIR /workspace
 COPY gradlew .
 COPY gradle/ gradle/
 COPY build.gradle .
-COPY settings.gradle .
 COPY notification-server/ notification-server/
-RUN chmod +x gradlew && ./gradlew :notification-server:bootJar -x test --no-daemon
+RUN echo "rootProject.name = 'notification-system'" > settings.gradle && \
+    echo "include 'notification-server'" >> settings.gradle && \
+    chmod +x gradlew && ./gradlew :notification-server:bootJar -x test --no-daemon
 
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app

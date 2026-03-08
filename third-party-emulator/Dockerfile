@@ -3,9 +3,10 @@ WORKDIR /workspace
 COPY gradlew .
 COPY gradle/ gradle/
 COPY build.gradle .
-COPY settings.gradle .
 COPY third-party-emulator/ third-party-emulator/
-RUN chmod +x gradlew && ./gradlew :third-party-emulator:bootJar -x test --no-daemon
+RUN echo "rootProject.name = 'notification-system'" > settings.gradle && \
+    echo "include 'third-party-emulator'" >> settings.gradle && \
+    chmod +x gradlew && ./gradlew :third-party-emulator:bootJar -x test --no-daemon
 
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
