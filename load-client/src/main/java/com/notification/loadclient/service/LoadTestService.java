@@ -96,7 +96,7 @@ public class LoadTestService {
                         responseTimes.add(System.currentTimeMillis() - start);
                     } catch (Exception e) {
                         failureCount.incrementAndGet();
-                        log.debug("Failed to send notification: {}", e.getMessage());
+                        log.error("Failed to send notification: {}", e.getMessage());
                     }
 
                     int progress = progressCount.incrementAndGet();
